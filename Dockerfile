@@ -23,4 +23,4 @@ RUN dkp-pacman -Syyu --noconfirm gba-dev && \
 ENV DEVKITARM=${DEVKITPRO}/devkitARM
 RUN mkdir /gba
 VOLUME ["/gba"]
-ENTRYPOINT cd /gba && make
+CMD cd /gba && make

@@ -46,7 +46,7 @@ OBJECTS = $(SOURCES:.c=.o)
 
 # --- Main build target
 
-all : clean build
+all : build
 
 build : $(ROM_NAME)
 
