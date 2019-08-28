@@ -1,0 +1,30 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build run",
+            "type": "shell",
+            "command": "open /Users/ah185191/Downloads/visualboyadvance-m.app ./Project.gba",
+            "problemMatcher": [],
+            "dependsOn": ["build"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "docker run --rm -it -v ${PWD}:/gba gba-compiler",
+            "problemMatcher": []
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "docker run --rm -it -v ${PWD}:/gba gba-compiler bash -c 'cd /gba && make clean'",
+            "problemMatcher": []
+        }
+    ]
+  }

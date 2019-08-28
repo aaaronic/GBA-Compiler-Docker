@@ -33,3 +33,29 @@ being named `Project.gba`. Feel free to change it to anything _without spaces or
 ```
 If the compilation succeeded, you should now see a `Project.gba` (or whatever you renamed it 
 to) in your project's folder.
+
+## Setting it and forgetting it for a project in Visual Studio Code
+Copy the included `.vscode` folder (containing `tasks.json`) into your project folder.
+Update `tasks.json`'s "build" command to point to your visualboyadvance-m installation:
+
+Windows example:
+```
+    "command": "C:/Users/Aaron/Desktop/visualboyadvance-m.exe ./Project.gba",
+```
+Mac Example:
+```
+    "command": "open /path/to/visualboyadvance-m.app ./Project.gba",
+```
+
+Note: If you've renamed `Project.gba`, you should fix that part of the command as well.
+
+Once that's all set up and happy, the Terminal -> Run Build Task... command in the menu
+should now compile your project and open the emulator with the result (if the compile
+succeeds).
+
+Terminal -> Run Task should provide 3 options:
+- **build run**: build and run the project
+- **build**: just build the project (but don't run anything).
+- **clean**: remove all the intermediate files from builds so the next build is _from
+ scratch_. This is helpful if something buggy is going on or if you've only changed header
+ files and aren't seeing your expected changes in the build.
