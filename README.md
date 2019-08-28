@@ -25,4 +25,11 @@ keyring master key..." step).
    - You should (hopefully) not need to change much about the Makefile aside from the
 `PRODUCT_NAME` line. It defaults to "Project", which leads to your resulting `.gba` file
 being named `Project.gba`. Feel free to change it to anything _without spaces or special characters_ (ex: "BouncingBox"). You can always rename the resulting file after the compilation instead.
-2. Run the docker image we build in the 
+
+2. Run the docker image we built above with the following special sauce:
+
+```
+    docker run --rm -it -v ${PWD}:/gba gba-compiler
+```
+If the compilation succeeded, you should now see a `Project.gba` (or whatever you renamed it 
+to) in your project's folder.
