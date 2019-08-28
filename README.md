@@ -59,3 +59,11 @@ Terminal -> Run Task should provide 3 options:
 - **clean**: remove all the intermediate files from builds so the next build is _from
  scratch_. This is helpful if something buggy is going on or if you've only changed header
  files and aren't seeing your expected changes in the build.
+
+## Acknowledgements
+The provided Dockerfile is a fork/combination of the Dockerfiles provided by devkitPro:
+https://github.com/devkitPro/docker. I have included the GPLv3 License in this repository
+to match theirs, as this work is derivative.
+
+The example main.c is a nice little demo and I have no clue where it came from. I will
+provide an acknowledgement here once I know its original author.
