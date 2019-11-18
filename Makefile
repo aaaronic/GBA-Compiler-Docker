@@ -4,6 +4,7 @@ PRODUCT_NAME       = Project
 # The one exception is the cleanup stuff.
 
 SOURCES            = $(wildcard *.c)
+ASMSOURCES         = $(wildcard *.asm)
 DKPATH             = /opt/devkitpro
 VBASIM             = C:\Users\admin\Desktop\visualboyadvance-m.exe
 FIND               = find
@@ -41,7 +42,9 @@ GBAFIX             = $(DKPATH)/tools/bin/gbafix
 # --- Delete
 RM                 = rm -f
 
-OBJECTS = $(SOURCES:.c=.o)
+ASMOBJECTS = $(ASMSOURCES:.asm=.o)
+COBJECTS = $(SOURCES:.c=.o)
+OBJECTS = $(COBJECTS) $(ASMOBJECTS)
 
 
 # --- Main build target
@@ -59,8 +62,12 @@ $(ROM_NAME) : $(ELF_NAME)
 $(ELF_NAME) : $(OBJECTS)
 	$(LD) $(OBJECTS) $(LDFLAGS) -o $@
 
+# -- Build .asm files into .o files
+$(ASMOBJECTS) : %.o : %.asm
+	$(AS) $(ASFLAGS) $< -o $@
+
 # -- Build .c files into .o files
-$(OBJECTS) : %.o : %.c
+$(COBJECTS) : %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 
