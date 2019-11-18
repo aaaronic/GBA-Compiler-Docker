@@ -1,5 +1,6 @@
 *.o
 *.i
+*.s
 *.elf
 *.gba
 .DS_Store
