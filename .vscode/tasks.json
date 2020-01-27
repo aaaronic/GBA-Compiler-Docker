@@ -17,13 +17,13 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "docker run --rm -it -v ${PWD}:/gba aaaronic/gba-compiler:1.0",
+            "command": "docker run --rm -it -v \"${PWD}:/gba\" aaaronic/gba-compiler:1.0",
             "problemMatcher": []
         },
         {
             "label": "clean",
             "type": "shell",
-            "command": "docker run --rm -it -v ${PWD}:/gba aaaronic/gba-compiler:1.0 bash -c 'cd /gba && make clean'",
+            "command": "docker run --rm -it -v \"${PWD}:/gba\" aaaronic/gba-compiler:1.0 bash -c 'cd /gba && make clean'",
             "problemMatcher": []
         }
     ]
