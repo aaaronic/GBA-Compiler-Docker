@@ -5,8 +5,8 @@ PRODUCT_NAME       = Project
 
 SOURCES            = $(wildcard *.c)
 ASMSOURCES         = $(wildcard *.asm)
+AUDIOSOURCES       = $(wildcard *.wav)
 DKPATH             = /opt/devkitpro
-VBASIM             = C:\Users\admin\Desktop\visualboyadvance-m.exe
 FIND               = find
 COPY               = cp -r
 
@@ -25,8 +25,7 @@ ASFLAGS            = -mthumb-interwork
 
 # --- Compiler
 CC                 = $(DKPATH)/devkitARM/bin/arm-none-eabi-gcc
-CFLAGS             = $(MODEL) -O2 -Wall -pedantic -Wextra -std=c99 -save-temps -D_ROM=$(ROM_NAME) -D_VBA=$(VBASIM) 
-
+CFLAGS             = $(MODEL) -O2 -Wall -pedantic -Wextra -std=c99 -save-temps -D_ROM=$(ROM_NAME)
 
 # --- Linker
 LD                 = $(DKPATH)/devkitARM/bin/arm-none-eabi-gcc
@@ -43,13 +42,15 @@ GBAFIX             = $(DKPATH)/tools/bin/gbafix
 RM                 = rm -f
 
 ASMOBJECTS = $(ASMSOURCES:.asm=.o)
-COBJECTS = $(SOURCES:.c=.o)
+AUDIOOBJECTS = $(AUDIOSOURCES:.wav=.c)
+AUDIOHEADERS = $(AUDIOSOURCES:.wav=.h)
+COBJECTS = $(SOURCES:.c=.o) $(AUDIOSOURCES:.wav=.o)
 OBJECTS = $(COBJECTS) $(ASMOBJECTS)
 
 
 # --- Main build target
 
-all : build
+all : audio build
 
 build : $(ROM_NAME)
 
@@ -70,7 +71,16 @@ $(ASMOBJECTS) : %.o : %.asm
 $(COBJECTS) : %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+# -- Build .wav files into .c and .h files
+$(AUDIOOBJECTS) : %.c : %.wav
+	wav2c $< $@ $*
+
+$(AUDIOHEADERS) : %.h : %.c
+
 
 clean:
 	$(RM) $(ROM_NAME) $(ELF_NAME) $(BIN_NAME)
+	$(RM) $(AUDIOOBJECTS) $(AUDIOHEADERS)
 	$(RM) *.o *.i *.s
+
+audio: $(AUDIOOBJECTS)

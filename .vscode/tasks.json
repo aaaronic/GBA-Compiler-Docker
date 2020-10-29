@@ -6,7 +6,10 @@
         {
             "label": "build run",
             "type": "shell",
-            "command": "open /Users/ah185191/Downloads/visualboyadvance-m.app ./Project.gba",
+            "command": "C:/Users/AaronHansen/Desktop/cs2261/visualboyadvance-m.exe ./Project.gba",
+            // Mac Version: "command": "open /Users/ah185191/Downloads/visualboyadvance-m.app ./Project.gba",
+            // add the visualboyadvance-m.exe exact path to the above line, before "./Project.gba"!
+            // Make sure there is a space between the exact path and "./Project.gba".
             "problemMatcher": [],
             "dependsOn": ["build"],
             "group": {
@@ -17,13 +20,13 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "docker run --rm -it -v \"${PWD}:/gba\" aaaronic/gba-compiler:1.0",
+            "command": "docker run --rm -it -v \"${PWD}:/gba\" aaaronic/gba-compiler:1.2",
             "problemMatcher": []
         },
         {
             "label": "clean",
             "type": "shell",
-            "command": "docker run --rm -it -v \"${PWD}:/gba\" aaaronic/gba-compiler:1.0 bash -c 'cd /gba && make clean'",
+            "command": "docker run --rm -it -v \"${PWD}:/gba\" aaaronic/gba-compiler:1.2 bash -c 'cd /gba && make clean'",
             "problemMatcher": []
         }
     ]
