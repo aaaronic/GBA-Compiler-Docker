@@ -1,0 +1,14 @@
+name: Build GBA Project
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        run: docker run --rm -v ${{ github.workspace }}:/gba aaaronic/gba-compiler:1.2
+      - name: Upload Project.gba
+        uses: actions/upload-artifact@v2
+        with:
+          name: Project.gba
+          path: ${{ github.workspace }}/Project.gba
