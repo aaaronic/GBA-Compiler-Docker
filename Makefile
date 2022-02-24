@@ -61,7 +61,7 @@ $(ROM_NAME) : $(ELF_NAME)
 
 # --- Build .o files into .elf file
 $(ELF_NAME) : $(OBJECTS)
-	$(LD) $(OBJECTS) $(LDFLAGS) -o $@
+	$(LD) $^ $(LDFLAGS) -o $@
 
 # -- Build .asm files into .o files
 $(ASMOBJECTS) : %.o : %.asm
