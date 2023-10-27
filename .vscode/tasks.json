@@ -6,10 +6,14 @@
         {
             "label": "build run",
             "type": "shell",
-            "command": "C:/Users/AaronHansen/Desktop/cs2261/visualboyadvance-m.exe ./Project.gba",
-            // Mac Version: "command": "open /Users/ah185191/Downloads/visualboyadvance-m.app ./Project.gba",
-            // add the visualboyadvance-m.exe exact path to the above line, before "./Project.gba"!
+            // add the mGBA.exe exact path to the relevant line(s) below, before "./Project.gba"!
             // Make sure there is a space between the exact path and "./Project.gba".
+            "windows": {
+                "command": "C:/Users/AaronHansen/Desktop/mGBA.exe ./Project.gba"
+            },
+            "osx": {
+                "command": "open /Users/aaronhansen/Downloads/mGBA.app ./Project.gba"
+            },
             "problemMatcher": [],
             "dependsOn": ["build"],
             "group": {
