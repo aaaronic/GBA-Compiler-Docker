@@ -5,15 +5,13 @@ has proven difficult time and time again, this Dockerfile + Makefile represents 
 unify things cross-platform in a less brittle way.
 
 ## Requirements
-Docker for Desktop:
-* Windows 10 (Pro only): https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe
-  - Note: Docker for Windows currently uses a feature (Hyper-V) that makes it completely incompatible with VirtualBox version 5 and older (6 is supposedly okay).
-- Window Home: https://github.com/docker/toolbox/releases/download/v19.03.1/DockerToolbox-19.03.1.exe
-  - Note: I haven't tested this option yet...
-- Mac: https://download.docker.com/mac/stable/Docker.dmg
+Docker for Desktop: https://www.docker.com/products/docker-desktop/
 
-Ths following `docker build` command is no longer required, since the
-image is now available on Docker Hub as aaaronic/gba-compiler:1.0.
+Note: Even if you can't get Docker running locally, I now have instructions for how to leverage the docker container from this repo via GitHub Actions! If you're in that camp, please see: [docs/UsingGitHubActions.md](docs/UsingGitHubActions.md)
+
+
+## Building your own Docker Container (not required)
+Ths following `docker build` command is only required if you plan to create your own version of this docker container. The one in this repo is available on Docker Hub as aaaronic/gba-compiler:1.2.
 
 Once docker is installed, you could choose to do a one-time build of the Dockerfile on your machine (*from the folder containing the `Dockerfile`*):
 
@@ -24,7 +22,7 @@ A few minutes later, you should have a docker image named gba-compiler that you 
 need to rebuild (hopefully ever again). It might spend a long time on the "Generating pacman
 keyring master key..." step).
 
-## Running a build (aka, compiling your GBA project)
+## Running a GBA project build (aka, compiling your GBA project)
 1. The provided Makefile needs to be in your GBA project's directory (next to all your `.h` and
 `.c` files).
    - You should (hopefully) not need to change much about the Makefile aside from the
