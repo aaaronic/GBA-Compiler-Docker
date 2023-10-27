@@ -34,7 +34,7 @@ being named `Project.gba`. Feel free to change it to anything _without spaces or
 2. Run the docker image we built above with the following special sauce:
 
 ```
-    docker run --rm -it -v ${PWD}:/gba aaaronic/gba-compiler:1.0
+    docker run --rm -it -v ${PWD}:/gba aaaronic/gba-compiler:1.2
 ```
 or, alternatively (if you chose to do your own `docker build` locally):
 ```
