@@ -12,7 +12,7 @@
                 "command": "C:/Users/AaronHansen/Desktop/mGBA.exe ./Project.gba"
             },
             "osx": {
-                "command": "open /Users/aaronhansen/Downloads/mGBA.app ./Project.gba"
+                "command": "open -a /Users/aaronhansen/Downloads/mGBA.app ./Project.gba"
             },
             "problemMatcher": [],
             "dependsOn": ["build"],
