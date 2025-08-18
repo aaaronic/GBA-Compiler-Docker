@@ -1,4 +1,4 @@
-PRODUCT_NAME       = Project
+PRODUCT_NAME       = my_project
 
 # You probably won't need to touch anything below here!!!
 # The one exception is the cleanup stuff.
@@ -56,12 +56,12 @@ build : $(ROM_NAME)
 
 # --- Build .elf file into .gba ROM file
 $(ROM_NAME) : $(ELF_NAME)
-	$(OBJCOPY) $(OBJCOPYFLAGS) $(ELF_NAME) $(ROM_NAME)
+	$(OBJCOPY) $(OBJCOPYFLAGS) $^ $(ROM_NAME)
 	$(GBAFIX) $(ROM_NAME)
 
 # --- Build .o files into .elf file
 $(ELF_NAME) : $(OBJECTS)
-	$(LD) $(OBJECTS) $(LDFLAGS) -o $@
+	$(LD) $^ $(LDFLAGS) -o $@
 
 # -- Build .asm files into .o files
 $(ASMOBJECTS) : %.o : %.asm
@@ -79,7 +79,7 @@ $(AUDIOHEADERS) : %.h : %.c
 
 
 clean:
-	$(RM) $(ROM_NAME) $(ELF_NAME) $(BIN_NAME)
+	$(RM) $(ROM_NAME) $(ELF_NAME) $(BIN_NAME).sav
 	$(RM) $(AUDIOOBJECTS) $(AUDIOHEADERS)
 	$(RM) *.o *.i *.s
 

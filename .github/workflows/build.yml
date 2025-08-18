@@ -6,9 +6,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build
-        run: docker run --rm -v ${{ github.workspace }}:/gba aaaronic/gba-compiler:1.2
-      - name: Upload Project.gba
+        run: docker run --rm -v ${{ github.workspace }}:/gba aaaronic/gba-compiler:1.3
+      - name: Upload my_project.gba
         uses: actions/upload-artifact@v4
         with:
-          name: Project.gba
-          path: ${{ github.workspace }}/Project.gba
+          name: my_project.gba
+          path: ${{ github.workspace }}/my_project.gba
