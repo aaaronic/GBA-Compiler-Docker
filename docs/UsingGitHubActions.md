@@ -1,12 +1,12 @@
 # Using this repo to perform GitHub actions builds of a GBA project:
 
 ## Purpose
-If for some reason you are unable to run docker locally, this repository can be forked to enable you to perform project builds using GitHub actions.
+If for some reason you are unable to run Docker locally, this repository can be forked to enable you to perform project builds using GitHub actions.
 
 # Setup
 Step one is creating a GitHub account, if you don't already have one (https://github.com/join).
 
-Once you have a GitHub account, go to main page of this repo and click the “Fork” button https://github.com/aaaronic/GBA-Compiler-Docker
+Once you have a GitHub account, go to main page of this repo and click the "Fork: button https://github.com/aaaronic/GBA-Compiler-Docker
 
 ![Screenshot showing where to find the "Fork" button on GitHub.](imgs/ForkButton.png)
 
@@ -31,7 +31,7 @@ The build from there is actually pretty simple (CLI instructions):
   - git push  # this sends your changes back to GitHub
 - GitHub will then notice the changes and automatically trigger a build under “Actions”:
   ![Screenshot showing the "Actions" button location.](imgs/Actions.png)
-- When the build finishes, if it succeeded, you’ll be able to download the Project.gba created:
+- When the build finishes, if it succeeded, you’ll be able to download the `.gba` file created:
   ![Screenshot of a completed build.](imgs/ActionCompleted.png)
   
   ![Screenshot showing the "Project.gba" download button.](imgs/Project.gba.png)
