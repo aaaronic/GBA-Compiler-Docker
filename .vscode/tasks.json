@@ -64,7 +64,7 @@
             "windows": {
                 "command": "Compress-Archive -Force . \"$(Split-Path -Path (Get-Location) -Leaf).zip\"",
             },
-            "command": "export zip=\"$(basename $(pwd)).zip\"; rm -f $zip; zip -x \"*.DS_Store\" -Xr $zip .",
+            "command": "export zip=\"$(basename \"$(pwd)\").zip\"; rm -f $zip; zip -x \"*.DS_Store\" -Xr \"$zip\" .",
             "problemMatcher": []
         }
     ]

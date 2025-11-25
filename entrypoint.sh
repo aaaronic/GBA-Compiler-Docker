@@ -10,6 +10,10 @@ fi
 
 make "$@"
 
+exit_code=$?
+
 if [[ -n "$CLEANUP_MAKEFILE" ]]; then
   rm /gba/Makefile
 fi
+
+exit $exit_code
