@@ -15,7 +15,7 @@ Note: Even if you can't get Docker running locally, I now have instructions for 
 
 
 ## Building your own Docker Container (not required)
-Ths following `docker build` command is only required if you plan to create your own version of this docker container. The one in this repo is available on Docker Hub as `aaaronic/gba-compiler:1.3`.
+Ths following `docker build` command is only required if you plan to create your own version of this docker container. The one in this repo is available on Docker Hub as `aaaronic/gba-compiler:1.3.1`.
 
 Once docker is installed, you could choose to do a one-time build of the Dockerfile on your machine (*from the folder containing the `Dockerfile`*):
 
@@ -31,7 +31,7 @@ need to rebuild (hopefully ever again).
 2. Run the docker image we built above with the following special sauce:
 
 ```
-    docker run --rm -it -v ${PWD}:/gba aaaronic/gba-compiler:1.3
+    docker run --rm -it -v ${PWD}:/gba aaaronic/gba-compiler:1.3.1
 ```
 or, alternatively (if you chose to do your own `docker build` locally):
 ```
@@ -57,7 +57,7 @@ Mac Example:
 Note: If you've renamed `my_project.gba`, you should fix that part of the command as well.
 Also Note: if you did a local `docker build` and want to use that image,
 update the docker commands for build and clean accordingly (basically
-just remove the "aaaronic/" and the ":1.3").
+just remove the "aaaronic/" and the ":1.3.1").
 
 Once that's all set up and happy, the Terminal -> Run Build Task... command in the menu
 should now compile your project and open the emulator with the result (if the compile
